@@ -1,0 +1,12 @@
+# TWO files needed for local dev:
+#
+# 1. web/.env.local  — read by Vite dev server (pnpm dev)
+#    VITE_SANITY_PROJECT_ID=your_project_id
+#    VITE_SANITY_DATASET=development
+#
+# 2. web/.dev.vars   — read by Wrangler (wrangler dev, for the API/D1 locally)
+#    VITE_SANITY_PROJECT_ID=your_project_id
+#    VITE_SANITY_DATASET=development
+#
+# Both are gitignored. Copy this file and fill in your Sanity project ID
+# (find it at sanity.io/manage after creating a project).

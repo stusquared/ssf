@@ -1,0 +1,18 @@
+{
+  "name": "sweetsourcefarmstead",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "dev:studio": "pnpm --filter studio dev",
+    "build": "pnpm --filter web build",
+    "db:migrate:local": "wrangler d1 execute ssf-db --local --file=migrations/0001_init.sql",
+    "db:migrate:dev": "wrangler d1 execute ssf-db-dev --file=migrations/0001_init.sql",
+    "db:migrate:prod": "wrangler d1 execute ssf-db --file=migrations/0001_init.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
+  }
+}

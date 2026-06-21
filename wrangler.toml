@@ -1,0 +1,22 @@
+name = "sweetsourcefarmstead"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "./web/dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ssf-db"
+database_id = "fe4cb851-e9cc-4091-aee5-7a4f945f86fc"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "ssf-assets"
+
+[env.preview]
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "ssf-db-dev"
+database_id = "bf4719c4-4bfb-4674-a458-7ed1124e170d"
+
+[[env.preview.r2_buckets]]
+binding = "FILES"
+bucket_name = "ssf-assets"
