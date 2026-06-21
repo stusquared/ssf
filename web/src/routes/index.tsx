@@ -72,19 +72,19 @@ function HomePage() {
             {[
               {
                 to: "/blog",
-                img: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=800&auto=format&fit=crop&q=80",
+                img: "/journal_card.jpg",
                 title: "Farm Journal",
                 text: "Stories from the field — what's growing, what we're learning, and what's on the table.",
               },
               {
                 to: "/csa",
-                img: "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=800&auto=format&fit=crop&q=80",
+                img: "/csa_card.jpg.jpg",
                 title: "CSA Program",
                 text: "Join our community-supported agriculture and receive a weekly box of the freshest seasonal produce.",
               },
               {
                 to: "/about",
-                img: "https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=800&auto=format&fit=crop&q=80",
+                img: "/our_story_card.jpg",
                 title: "Our Story",
                 text: "A family farm committed to sustainable practices, healthy soil, and honest food.",
               },

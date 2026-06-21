@@ -39,7 +39,7 @@ function AboutPage() {
 
           <div className="bg-[var(--color-linen)] aspect-square overflow-hidden">
             <img
-              src="/about-farm.jpg"
+              src="/our_story_card.jpg"
               alt="The farm"
               className="w-full h-full object-cover"
               onError={(e) => {
