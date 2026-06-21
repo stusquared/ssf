@@ -31,7 +31,7 @@ function HomePage() {
       <section className="relative min-h-[90svh] flex items-center justify-center overflow-hidden bg-[var(--color-ink)]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516822277566-bb38424a2b77?w=1920&auto=format&fit=crop&q=80')" }}
+          style={{ backgroundImage: "url('/hero.jpg')" }}
         />
         <div className="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-tight mb-6">
