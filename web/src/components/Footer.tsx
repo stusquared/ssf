@@ -33,6 +33,13 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
+            <div className="flex flex-col sm:items-end gap-1">
+              <img
+                src="/homegrown-by-heroes.png"
+                alt="Homegrown By Heroes certified"
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-xs text-white/40">
               © {new Date().getFullYear()} Sweet Source Farmstead
             </p>
