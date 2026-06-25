@@ -33,7 +33,7 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-            <div className="flex flex-col sm:items-end gap-1">
+            <div className="flex flex-col items-start sm:items-end gap-1">
               <img
                 src="/homegrown-by-heroes.png"
                 alt="Homegrown By Heroes certified"
