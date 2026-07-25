@@ -5,6 +5,47 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
+const practices = [
+  {
+    title: "We do not till",
+    body: [
+      "Aside from opening our fields initially, we practice no-till farming. This means the ecosystem of our soil does not contend with the destructive nature of fast moving metal. Instead, we engage in biologically-intensive, human-scale methods to manage our permanent raised beds.",
+    ],
+    list: [
+      "Less dependence on expensive machinery",
+      "Less pollution from tractors and runoff caused by tillage",
+      "Improved soil structure and reduced compaction",
+      "More soil life and natural resistance to pests and disease",
+      "Increased water holding capacity and resistance to drought",
+    ],
+  },
+  {
+    title: "We use no pesticides of any kind",
+    body: [
+      "There are a number of pesticides approved for Organic use, but we feel that toxic substances, no matter their origins, should not be applied to food.",
+    ],
+  },
+  {
+    title: "We use no tractors in our fields",
+    body: [
+      "We believe there is a level of care and attention to detail that comes with keeping our feet on the ground and our hands in the soil. While we use a tractor to lift and move compost and mulch, we never drive it into the fields.",
+      "Our production is sized for tools, practices and enterprises that celebrate the satisfaction of human work, and in return the work benefits from the increased care that this scale affords.",
+    ],
+  },
+  {
+    title: "We treat our animals with the utmost care",
+    body: [
+      "All of our farm animals are on a strictly organic and natural diet. They forage, scratch, munch, and move around the way nature intended. While we do not allow our hens to free range — due to the danger of them getting in the road or wandering to the nearby sod farms where chemicals are sprayed — they are rotationally grazed or have access to a large chicken run from sun up to sun down. Animals are crucial to the health of the soil.",
+    ],
+  },
+  {
+    title: "We test our water regularly",
+    body: [
+      "We run water testing twice a year through the health department to ensure it is clean and safe for irrigation.",
+    ],
+  },
+];
+
 function AboutPage() {
   return (
     <>
@@ -12,72 +53,314 @@ function AboutPage() {
       <div className="pt-32 pb-16 bg-[var(--color-linen)]">
         <Container>
           <h1 className="font-serif text-5xl sm:text-6xl font-medium">Our Story</h1>
-          <p className="mt-4 text-[var(--color-muted)] text-lg max-w-xl leading-relaxed">
-            A small family farm rooted in sustainable practices and a love for real food.
+          <p className="mt-4 text-[var(--color-muted)] text-lg max-w-2xl leading-relaxed">
+            A small scale, regenerative, mixed enterprise farm in Willow Spring, North
+            Carolina — growing vegetables, fruits, herbs, flowers, poultry, and eggs.
           </p>
         </Container>
       </div>
 
       <Container>
-        <div className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="prose max-w-none">
+        {/* Intro */}
+        <div className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
             <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
-              Sweet Source Farmstead was born from a simple belief: that growing food with
-              care for the land produces something truly nourishing — for the body and the
-              community alike.
+              We are farmers who care about the flourishing of our place and the people in
+              our community.
             </p>
             <p className="text-[var(--color-muted)] leading-relaxed mb-6">
-              We tend our fields with organic practices, paying close attention to soil
-              health, crop rotation, and the rhythms of the seasons. Every seed we plant
-              is a commitment to our customers, our neighbors, and the land we steward.
+              Alongside our produce, we offer field trips and educational workshops —
+              because knowing where your food comes from is part of what makes it
+              nourishing.
             </p>
             <p className="text-[var(--color-muted)] leading-relaxed">
-              Through our CSA program, we connect directly with the families who eat our
-              food — sharing not just vegetables, but the story of where they come from.
+              We have lots of dreams and plans for this place to grow into a sanctuary for
+              our community. A place where you can step away from the noise and hustle and
+              breathe. So stick around, folks, and become part of the dream.
             </p>
           </div>
 
-          <div className="bg-[var(--color-linen)] aspect-square overflow-hidden">
+          <div className="bg-[var(--color-linen)] aspect-[4/3] overflow-hidden">
             <img
-              src="/our_story_card.jpg"
-              alt="The farm"
+              src="/farm/high-tunnel.jpg"
+              alt="Rows of lettuce growing inside one of the farm's high tunnels"
               className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).parentElement!.style.background =
-                  "var(--color-linen)";
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
             />
           </div>
         </div>
 
-        {/* Values */}
+        {/* Farming practices */}
         <div className="py-16 border-t border-[var(--color-linen)]">
-          <h2 className="font-serif text-3xl mb-10">What We Believe</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Soil First",
-                text: "Healthy soil is the foundation of everything we do. We build it up each year through composting, cover cropping, and thoughtful rotation.",
-              },
-              {
-                title: "Seasonal & Local",
-                text: "We grow what thrives here, in this climate, at this time of year. No forcing, no shortcuts — just honest food at its peak.",
-              },
-              {
-                title: "Community Rooted",
-                text: "Our CSA members aren't customers — they're partners in the farm. We grow for people we know, and that changes everything.",
-              },
-            ].map((v) => (
-              <div key={v.title}>
-                <div className="w-10 h-1 bg-[var(--color-terra)] mb-4" />
-                <h3 className="font-serif text-xl mb-3">{v.title}</h3>
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed">{v.text}</p>
+          <h2 className="font-serif text-3xl sm:text-4xl mb-3">How We Farm</h2>
+          <p className="text-[var(--color-muted)] leading-relaxed max-w-2xl mb-12">
+            Five commitments that shape every decision we make on this land.
+          </p>
+
+          <div className="space-y-12">
+            {practices.map((p, i) => (
+              <div key={p.title} className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-3">
+                <span className="font-serif text-4xl text-[var(--color-terra)] leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-serif text-2xl mb-3">{p.title}</h3>
+                  {p.body.map((para) => (
+                    <p key={para} className="text-[var(--color-muted)] leading-relaxed mb-3">
+                      {para}
+                    </p>
+                  ))}
+                  {p.list && (
+                    <ul className="mt-4 space-y-2 list-none p-0 m-0">
+                      {p.list.map((item) => (
+                        <li
+                          key={item}
+                          className="text-[var(--color-muted)] text-sm leading-relaxed pl-5 relative before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-[var(--color-terra)]"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </Container>
+
+      {/* Practices imagery */}
+      <div className="bg-[var(--color-linen)] py-16">
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { src: "/farm/lettuce-bed.jpg", alt: "A dense bed of red leaf lettuce" },
+              { src: "/farm/chicken.jpg", alt: "A crested hen foraging in the grass" },
+              { src: "/farm/bee-brassica.jpg", alt: "A bumblebee on flowering brassica" },
+              { src: "/farm/butterfly-weed.jpg", alt: "Orange butterfly weed in bloom" },
+            ].map((img) => (
+              <div key={img.src} className="aspect-square overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
+      <Container>
+        {/* History */}
+        <div className="py-16">
+          <h2 className="font-serif text-3xl sm:text-4xl mb-10">Our History</h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2 space-y-5">
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                This farm land in southern Wake County was farmed by Katy's grandfather,
+                Charles Stephenson. He came home from WWII and worked it as a tenant
+                farmer. In 1972 he and his wife, Ruth, were able to purchase the land they
+                had farmed from the families of the women that had owned it. Katy grew up
+                across the road from her grandparents and always dreamed of building a
+                house on the farm to raise her children around the family. We are currently
+                encircled by her parents, sister's family, uncles, aunts, and cousins. The
+                Stephenson land is still farmed today by Katy, her cousin Colt, and her
+                Uncle Mackey.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                Both Jesse and Katy grew up in families that were homesteading before it was
+                a trend. We have memories of abundant gardens, working alongside family
+                members, and eating delicious produce from the farm year round. Jesse's
+                family farmed in Northern Minnesota after immigrating from Scandinavia.
+                Katy's maternal side of the family (Stancil) lived five minutes away in
+                Johnston County. The Stancil land has been traced back to how it came into
+                the family — it was originally gifted to an ancestor, Haley Dupree, for his
+                service in the Revolutionary War. Alexander Stancil married into the family
+                in 1830 and began farming the land. The Stancil land is still farmed today
+                by descendants of Haley Dupree and Alexander Stancil.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                When we were dating, Katy gifted Jesse his first tomato plant. Our first
+                little tomato was named Tom. He grew out of a pot in the backyard of Jesse's
+                rental house in Jacksonville, NC. Jesse would come visit Katy at her
+                parents' house often and we would go foraging for blackberries and help her
+                dad in the garden. Eventually Jesse was able to have a garden in the back
+                yard of our first house in Jacksonville. Since 2007 he has consumed an
+                abundance of knowledge about farming, nutrition, and the effects of
+                conventional farming on the climate. We always joke that we fell in love
+                while cooking — we love cooking with high quality ingredients and making
+                gourmet meals at home.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                Shortly after moving into our house on the farm in 2017, Jesse began his
+                garden in the back yard, implementing all that he had learned. Then in 2022
+                the dream of stewarding this land for the next generation became more
+                pressing. We wanted to nurse this land back to health after years of
+                conventional farming stripping the topsoil bare of life. We started dreaming
+                of what it would look like to have a market garden. In 2025 we were awarded
+                grants that allowed us to buy our first two high tunnels, and we began
+                selling produce at our community market that spring.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <figure className="m-0">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
+                    src="/farm/history-family-field.jpg"
+                    alt="A vintage photograph of a father and young child walking through a hayfield"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Homesteading before it was a trend.
+                </figcaption>
+              </figure>
+              <figure className="m-0">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
+                    src="/farm/history-first-tomato.jpg"
+                    alt="A hand reaching into a tomato plant holding a small green tomato"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Tom — our first tomato.
+                </figcaption>
+              </figure>
+              <figure className="m-0">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
+                    src="/farm/history-jesse-tom.jpg"
+                    alt="Jesse tending tomato plants growing in pots in a backyard"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Jesse and Tom, Jacksonville, NC.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        {/* Farmers */}
+        <div className="py-16 border-t border-[var(--color-linen)]">
+          <h2 className="font-serif text-3xl sm:text-4xl mb-12">Get to Know Your Farmers</h2>
+
+          {/* Jesse */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 mb-16">
+            <div>
+              <div className="bg-[var(--color-linen)] aspect-[3/4] overflow-hidden">
+                <img
+                  src="/farm/jesse.jpg"
+                  alt="Jesse kneeling with a watering can inside a high tunnel"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figure className="m-0 mt-4">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
+                    src="/farm/history-motorcycle.jpg"
+                    alt="A motorcycle parked in a dry riverbed with a rider resting beside it"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Northern to Southern Africa, by motorcycle.
+                </figcaption>
+              </figure>
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl mb-4">Jesse</h3>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                Jesse grew up all over the midwest and in Kenya, Africa. Some of his best
+                childhood memories are from his time on his grandparents' dairy farm —
+                rhubarb scented soap takes him right back to his Grandma's garden. Jesse has
+                had many adventures in his life. He spent middle school and high school in
+                Kenya, did a year at a private college playing soccer, rode a motorcycle
+                from Northern to Southern Africa, served in the United States Marine Corps,
+                ran a 50-mile ultra marathon, and traveled through Europe, Australia, and
+                New Zealand backpacking and rock climbing for nine months with his buddy
+                from the Marine Corps.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                Jesse has always been passionate about nutrition. He is a jack of all
+                trades. He has roasted coffee for over 20 years just for fun, brewed the
+                best pumpkin ale that Katy has ever tasted, and enjoys baking sourdough,
+                fermenting all the things, and brewing hard cider each fall. If Katy or his
+                dad, Darrell, needs something built, he is the one to do it.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                Jesse is a Campbell University alumnus. He enjoys rugby over football, but
+                he will watch the Chiefs play with Katy. He is a classic rock kind of guy.
+                Give him a cup of good coffee on the porch on a cool morning and he is in
+                paradise. If you want to know anything about soil health, regenerative
+                farming, or homesteading, he is the one to ask — he is the one out there
+                doing the physical labor all year round to ensure you have the best food
+                around.
+              </p>
+            </div>
+          </div>
+
+          {/* Katy */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
+            <div className="bg-[var(--color-linen)] aspect-[3/4] flex items-center justify-center">
+              <span className="text-xs text-[var(--color-muted)] tracking-wide uppercase">
+                Photo coming soon
+              </span>
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl mb-4">Katy</h3>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                Here are a few things you should know about Katy. She loves people and
+                animals, and not necessarily in that order. When you interact with her you
+                will instantly feel safe and seen. She will make you laugh, and she will
+                most likely want to talk to you about chickens.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                She is the one keeping up with all the administration, to-do lists, and
+                social media, giving Jesse much needed deadlines, tenderly caring for our
+                animals, and trying desperately to convince Jesse that they should keep all
+                of them as pets. You will find her out in the garden in the spring, fall,
+                and winter. Katy is passionate about advocating for those with invisible
+                illnesses and helping folks be more thoughtful toward those of us who have
+                other abilities.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                She is a Campbell University alumna — Go Camels! If she has headphones on,
+                she is either listening to Taylor Swift or an audio book.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      {/* Volunteers */}
+      <div className="bg-[var(--color-sage)] text-white py-16">
+        <Container>
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-3xl mb-4">Our Volunteers</h2>
+            <p className="text-white/80 leading-relaxed mb-4">
+              We have the absolute best crew of volunteers that make all of this possible.
+              From helping with harvest, planting, washing, packing, sorting, and
+              brainstorming, to access to land and tech support — they are part of every
+              aspect of this farm.
+            </p>
+            <p className="text-white/80 leading-relaxed">
+              Thank you to Ronnie (Katy's dad), Denise (Katy's mom), Darrell (Jesse's dad),
+              Stuart, and Becky for all of your help.
+            </p>
+          </div>
+        </Container>
+      </div>
     </>
   );
 }

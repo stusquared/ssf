@@ -38,7 +38,7 @@ function HomePage() {
             Sweet Source<br />Farmstead
           </h1>
           <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
-            Fresh, seasonal produce grown with care and shared with community.
+            A small-scale, regenerative farm in Willow Spring, North Carolina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/csa">
@@ -59,14 +59,33 @@ function HomePage() {
       <section className="bg-[var(--color-sage)] text-white py-14">
         <Container>
           <p className="font-serif text-xl sm:text-2xl text-center max-w-3xl mx-auto leading-relaxed">
-            "We believe in growing food the right way — nurturing the soil, honoring the
-            seasons, and sharing the harvest with our neighbors."
+            We are farmers who care about the flourishing of our place and the people in
+            our community.
           </p>
         </Container>
       </section>
 
-      {/* Feature cards */}
+      {/* Intro */}
       <section className="py-20">
+        <Container>
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-lg text-[var(--color-muted)] leading-relaxed">
+              Sweet Source Farmstead is a small scale, regenerative, mixed enterprise farm
+              in Willow Spring, North Carolina. We offer organically grown vegetables,
+              fruits, herbs, flowers, poultry, eggs, field trips, and educational workshops.
+            </p>
+            <Link
+              to="/about"
+              className="inline-block mt-6 text-[var(--color-sage)] font-medium hover:underline"
+            >
+              Read more about our farming practices →
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Feature cards */}
+      <section className="pb-20">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -116,9 +135,43 @@ function HomePage() {
         </Container>
       </section>
 
+      {/* What we grow */}
+      <section className="py-20 bg-[var(--color-linen)]">
+        <Container>
+          <div className="text-center mb-12 max-w-xl mx-auto">
+            <h2 className="font-serif text-3xl sm:text-4xl mb-4">What We Grow</h2>
+            <p className="text-[var(--color-muted)] leading-relaxed">
+              Vegetables, fruits, herbs, flowers, poultry, and eggs — grown organically and
+              harvested at their peak.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {[
+              { src: "/farm/strawberries.jpg", alt: "Pints of freshly picked strawberries" },
+              { src: "/farm/eggs.jpg", alt: "A basket of pastel-colored farm eggs" },
+              { src: "/farm/market-beets-carrots.jpg", alt: "Beets and carrots on the market table" },
+              { src: "/farm/squash.jpg", alt: "A basket of winter squash" },
+              { src: "/farm/lettuce-red.jpg", alt: "Red oakleaf lettuce" },
+              { src: "/farm/tomatoes.jpg", alt: "A bowl of ripe cherry tomatoes" },
+              { src: "/farm/coneflower-bee.jpg", alt: "A bee on purple coneflowers" },
+              { src: "/farm/chicken.jpg", alt: "A hen foraging in the grass" },
+            ].map((img) => (
+              <div key={img.src} className="aspect-square overflow-hidden bg-[var(--color-muted)]/10">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Recent posts */}
       {posts.length > 0 && (
-        <section className="py-16 bg-[var(--color-linen)]">
+        <section className="py-16">
           <Container>
             <div className="flex items-baseline justify-between mb-10">
               <h2 className="font-serif text-3xl">From the Journal</h2>
@@ -132,7 +185,7 @@ function HomePage() {
                   key={post._id}
                   to="/blog/$slug"
                   params={{ slug: post.slug.current }}
-                  className="group bg-[var(--color-parchment)] block overflow-hidden hover:shadow-md transition-shadow"
+                  className="group bg-[var(--color-linen)] block overflow-hidden hover:shadow-md transition-shadow"
                 >
                   {post.mainImage && (
                     <div className="aspect-[16/9] overflow-hidden">
