@@ -37,7 +37,7 @@ function HomePage() {
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-tight mb-6">
             Sweet Source<br />Farmstead
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed sm:whitespace-nowrap">
             A small-scale, regenerative farm in Willow&nbsp;Spring, North&nbsp;Carolina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
