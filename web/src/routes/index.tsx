@@ -38,7 +38,7 @@ function HomePage() {
             Sweet Source<br />Farmstead
           </h1>
           <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
-            A small-scale, regenerative farm in Willow Spring, North Carolina.
+            A small-scale, regenerative farm in Willow&nbsp;Spring, North&nbsp;Carolina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/csa">
