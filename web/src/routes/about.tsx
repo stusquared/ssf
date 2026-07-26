@@ -312,10 +312,13 @@ function AboutPage() {
 
           {/* Katy */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
-            <div className="bg-[var(--color-linen)] aspect-[3/4] flex items-center justify-center">
-              <span className="text-xs text-[var(--color-muted)] tracking-wide uppercase">
-                Photo coming soon
-              </span>
+            <div className="bg-[var(--color-linen)] aspect-[3/4] overflow-hidden">
+              <img
+                src="/farm/katy.jpg"
+                alt="Katy holding one of the farm's hens among the blueberry bushes"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <h3 className="font-serif text-2xl mb-4">Katy</h3>
