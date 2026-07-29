@@ -133,10 +133,10 @@ function AboutPage() {
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
-              { src: "/farm/lettuce-bed.jpg", alt: "A dense bed of red leaf lettuce" },
-              { src: "/farm/chicken.jpg", alt: "A crested hen foraging in the grass" },
+              { src: "/farm/bean-seedlings.jpg", alt: "Rows of young bean seedlings in a mulched permanent bed under drip irrigation" },
+              { src: "/farm/bean-vines.jpg", alt: "A wall of mature bean vines climbing inside a high tunnel" },
+              { src: "/farm/hen.jpg", alt: "A speckled hen out on pasture behind poultry netting" },
               { src: "/farm/bee-brassica.jpg", alt: "A bumblebee on flowering brassica" },
-              { src: "/farm/butterfly-weed.jpg", alt: "Orange butterfly weed in bloom" },
             ].map((img) => (
               <div key={img.src} className="aspect-square overflow-hidden">
                 <img
@@ -245,21 +245,48 @@ function AboutPage() {
                   Jesse and Tom, Jacksonville, NC.
                 </figcaption>
               </figure>
+              <figure className="m-0">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
+                    src="/farm/market-spotlight.jpg"
+                    alt="Jesse and Katy behind their stand of produce at the community farmers market"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Our first season at the community market, 2025.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
 
         {/* Farmers */}
         <div className="py-16 border-t border-[var(--color-linen)]">
-          <h2 className="font-serif text-3xl sm:text-4xl mb-12">Get to Know Your Farmers</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl mb-8">Get to Know Your Farmers</h2>
+
+          <figure className="m-0 mb-16">
+            <div className="bg-[var(--color-linen)] aspect-[3/2] overflow-hidden">
+              <img
+                src="/farm/jesse-katy.jpg"
+                alt="Jesse and Katy standing together at the edge of the sweet corn at dusk"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-sm text-[var(--color-muted)]">
+              Jesse and Katy, out by the corn at the end of a summer day.
+            </figcaption>
+          </figure>
 
           {/* Jesse */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 mb-16">
             <div>
               <div className="bg-[var(--color-linen)] aspect-[3/4] overflow-hidden">
                 <img
-                  src="/farm/jesse.jpg"
-                  alt="Jesse kneeling with a watering can inside a high tunnel"
+                  src="/farm/jesse-harvest.jpg"
+                  alt="Jesse kneeling to pick tomatoes inside a high tunnel, harvest crate at his feet"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />

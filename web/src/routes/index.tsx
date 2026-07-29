@@ -103,9 +103,9 @@ function HomePage() {
               },
               {
                 to: "/about",
-                img: "/our_story_card.jpg",
+                img: "/farm/jesse-katy.jpg",
                 title: "Our Story",
-                text: "A family farm committed to sustainable practices, healthy soil, and honest food.",
+                text: "Meet Jesse and Katy — a family farm committed to sustainable practices, healthy soil, and honest food.",
               },
             ].map((card) => (
               <Link
@@ -148,13 +148,13 @@ function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {[
               { src: "/farm/strawberries.jpg", alt: "Pints of freshly picked strawberries" },
+              { src: "/farm/tomatoes-cherry-vine.jpg", alt: "Cherry tomatoes ripening on the vine" },
               { src: "/farm/eggs.jpg", alt: "A basket of pastel-colored farm eggs" },
+              { src: "/farm/peppers-harvest.jpg", alt: "A basket of freshly cut sweet peppers" },
               { src: "/farm/market-beets-carrots.jpg", alt: "Beets and carrots on the market table" },
               { src: "/farm/squash.jpg", alt: "A basket of winter squash" },
+              { src: "/farm/hen.jpg", alt: "A speckled hen out on pasture" },
               { src: "/farm/lettuce-red.jpg", alt: "Red oakleaf lettuce" },
-              { src: "/farm/tomatoes.jpg", alt: "A bowl of ripe cherry tomatoes" },
-              { src: "/farm/coneflower-bee.jpg", alt: "A bee on purple coneflowers" },
-              { src: "/farm/chicken.jpg", alt: "A hen foraging in the grass" },
             ].map((img) => (
               <div key={img.src} className="aspect-square overflow-hidden bg-[var(--color-muted)]/10">
                 <img

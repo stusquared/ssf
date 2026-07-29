@@ -182,6 +182,40 @@ function CsaPage() {
           </div>
         </div>
       </Container>
+
+      {/* A taste of the season */}
+      <div className="bg-[var(--color-linen)] py-16">
+        <Container>
+          <div className="text-center mb-10 max-w-xl mx-auto">
+            <h2 className="font-serif text-3xl mb-3">A Taste of the Season</h2>
+            <p className="text-[var(--color-muted)] leading-relaxed">
+              Shares change with the calendar — here's a sample of what comes out of the
+              fields and tunnels through the year.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {[
+              { src: "/farm/tomatoes-green-vine.jpg", alt: "Green heirloom tomatoes ripening on the vine" },
+              { src: "/farm/peppers-harvest.jpg", alt: "A basket of freshly cut sweet peppers" },
+              { src: "/farm/lettuce-green.jpg", alt: "A head of frilly green lettuce" },
+              { src: "/farm/carrots.jpg", alt: "Freshly pulled carrots" },
+              { src: "/farm/peas.jpg", alt: "Shelled green peas" },
+              { src: "/farm/beets-turnips.jpg", alt: "Beets and turnips with their roots still on" },
+              { src: "/farm/onions.jpg", alt: "White onions stacked at the market" },
+              { src: "/farm/strawberries.jpg", alt: "Pints of freshly picked strawberries" },
+            ].map((img) => (
+              <div key={img.src} className="aspect-square overflow-hidden bg-[var(--color-muted)]/10">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
     </>
   );
 }
