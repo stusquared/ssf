@@ -86,8 +86,8 @@ function AboutPage() {
         <div className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
-              We are farmers who care about the flourishing of our place and the people in
-              our community.
+              We are farmers who care about the flourishing of this land and the people
+              around it.
             </p>
             <p className="text-[var(--color-muted)] leading-relaxed mb-6">
               Alongside our produce, we offer field trips and educational workshops —

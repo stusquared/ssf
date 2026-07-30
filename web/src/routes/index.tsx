@@ -59,8 +59,8 @@ function HomePage() {
       <section className="bg-[var(--color-sage)] text-white py-14">
         <Container>
           <p className="font-serif text-xl sm:text-2xl text-center max-w-3xl mx-auto leading-relaxed">
-            We are farmers who care about the flourishing of our place and the people in
-            our community.
+            We are farmers who care about the flourishing of this land and the people
+            around it.
           </p>
         </Container>
       </section>
