@@ -9,33 +9,54 @@ const practices = [
   {
     title: "We do not till",
     body: [
-      "Aside from opening our fields initially, we practice no-till farming. This means the ecosystem of our soil does not contend with the destructive nature of fast moving metal. Instead, we engage in biologically-intensive, human-scale methods to manage our permanent raised beds.",
-    ],
-    list: [
-      "Less dependence on expensive machinery",
-      "Less pollution from tractors and runoff caused by tillage",
-      "Improved soil structure and reduced compaction",
-      "More soil life and natural resistance to pests and disease",
-      "Increased water holding capacity and resistance to drought",
+      "Aside from creating new beds initially, we practice no-till farming. The ecosystem of our soil does not battle with the destructive nature of fast moving metal. Instead, we engage in biologically-intensive, human-scale methods to manage our beds and protect the soil.",
+      "This creates more soil life and natural resistance to pests and disease. It also increases the soil's ability to hold water and resist drought.",
     ],
   },
   {
-    title: "We use no pesticides of any kind",
+    title: "We use holistic practices for pest control and fertility management",
     body: [
-      "There are a number of pesticides approved for Organic use, but we feel that toxic substances, no matter their origins, should not be applied to food.",
+      "We do not use any chemical or synthetic sprays on our farm. We maintain natural growing methods using organic compost applications, companion planting, fostering biodiversity, and the bare minimum of organically approved inputs when they are needed.",
+    ],
+    itemsLabel: "Sprays we do use",
+    items: [
+      {
+        name: "Bacillus thuringiensis (Bt)",
+        desc: "A naturally occurring bacterium that makes worms sick when they eat it.",
+      },
+      {
+        name: "Neem oil",
+        desc: "A natural, organic pesticide derived from the seeds of the neem tree.",
+      },
+      {
+        name: "Spinosad",
+        desc: "Derived from soil bacteria to target specific insects. It breaks down quickly in sunlight and soil into harmless natural elements.",
+      },
+      {
+        name: "Lactic acid bacteria (LAB)",
+        desc: "Commonly found in fermented foods, we use it as a biostimulant. Farmer Jesse cultures ours from organic rice wash water.",
+      },
+      {
+        name: "Whey",
+        desc: "Naturally derived from organic milk, we use it as a fungicide. Farmer Jesse makes this himself.",
+      },
+      {
+        name: "Effective microorganisms",
+        desc: "A blend of beneficial, naturally occurring microbes — primarily LAB, yeast, and photosynthetic bacteria. We use it as a biostimulant.",
+      },
     ],
   },
   {
-    title: "We use no tractors in our fields",
+    title: "We are actively engaged with our farm",
     body: [
-      "We believe there is a level of care and attention to detail that comes with keeping our feet on the ground and our hands in the soil. While we use a tractor to lift and move compost and mulch, we never drive it into the fields.",
-      "Our production is sized for tools, practices and enterprises that celebrate the satisfaction of human work, and in return the work benefits from the increased care that this scale affords.",
+      "We highly value integrity and quality. We have our hands in the soil and our feet on the ground daily, giving the care that our small farming scale allows. Keeping our team and our tools small means we can pay attention to the details and foster a flourishing farm.",
+      "We do not use tractors in our growing area, apart from moving mulch and compost. Tractors compact the ground, which harms plant health as well as the water and the land around us. Staying off it also reduces the carbon footprint of our farm.",
     ],
   },
   {
     title: "We treat our animals with the utmost care",
     body: [
-      "All of our farm animals are on a strictly organic and natural diet. They forage, scratch, munch, and move around the way nature intended. While we do not allow our hens to free range — due to the danger of them getting in the road or wandering to the nearby sod farms where chemicals are sprayed — they are rotationally grazed or have access to a large chicken run from sun up to sun down. Animals are crucial to the health of the soil.",
+      "All of our farm animals are on a strictly organic and natural diet. They forage, scratch, munch, and move around the way nature intended. While we do not allow our hens to free range — due to the danger of them getting in the road or wandering to the nearby sod farms — they are rotationally grazed or have access to a large chicken run from sun up to sun down. Animals are crucial to regenerating soil health.",
     ],
   },
   {
@@ -109,17 +130,30 @@ function AboutPage() {
                       {para}
                     </p>
                   ))}
-                  {p.list && (
-                    <ul className="mt-4 space-y-2 list-none p-0 m-0">
-                      {p.list.map((item) => (
-                        <li
-                          key={item}
-                          className="text-[var(--color-muted)] text-sm leading-relaxed pl-5 relative before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-[var(--color-terra)]"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                  {p.items && (
+                    <div className="mt-6">
+                      {p.itemsLabel && (
+                        <p className="text-sm font-medium text-[var(--color-ink)] mb-3">
+                          {p.itemsLabel}
+                        </p>
+                      )}
+                      <dl className="m-0 space-y-3">
+                        {p.items.map((item) => (
+                          <div
+                            key={item.name}
+                            className="pl-5 relative before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-[var(--color-terra)]"
+                          >
+                            <dt className="text-sm font-medium text-[var(--color-ink)] inline">
+                              {item.name}
+                            </dt>
+                            <dd className="m-0 text-sm text-[var(--color-muted)] leading-relaxed inline">
+                              {" — "}
+                              {item.desc}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
                   )}
                 </div>
               </div>
