@@ -54,40 +54,74 @@ function CsaPage() {
         </Container>
       </div>
 
+      {/* Banner */}
+      <div className="bg-[var(--color-linen)]">
+        <img
+          src="/farm/wildflower-field.jpg"
+          alt="A field of daisies and wildflowers in front of the farm's tobacco barn, with a rainbow under a storm sky"
+          className="w-full h-[280px] sm:h-[380px] lg:h-[440px] object-cover"
+        />
+      </div>
+
       <Container>
         <div className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Info side */}
           <div>
-            <h2 className="font-serif text-2xl mb-6">How It Works</h2>
-            <div className="space-y-6">
+            <h2 className="font-serif text-3xl mb-4">What to Expect</h2>
+            <p className="text-[var(--color-muted)] leading-relaxed mb-8">
+              Each week we harvest at our freshest and gather your share by hand. Our aim is
+              to give you a wide variety of vegetables and herbs, while making sure the
+              favorites you count on turn up consistently.
+            </p>
+
+            <dl className="m-0 divide-y divide-[var(--color-linen)] border-t border-b border-[var(--color-linen)]">
               {[
                 {
-                  step: "01",
-                  title: "Sign Up for the Waitlist",
-                  text: "Submit your information below and we'll reach out when shares for the upcoming season become available.",
+                  term: "Your share",
+                  desc: "Five to seven items each week.",
                 },
                 {
-                  step: "02",
-                  title: "Choose Your Share",
-                  text: "We'll offer options for share size to fit your household — from single and couple portions to full family shares.",
+                  term: "Cost",
+                  desc: "$35 per week, paid at sign-up. A four-pickup month comes to $140; a five-pickup month, $175.",
                 },
                 {
-                  step: "03",
-                  title: "Pick Up Weekly",
-                  text: "Once the season begins, collect your box of freshly harvested produce each week at our farm pickup location.",
+                  term: "Sign-ups",
+                  desc: "Month to month. Registration opens on the 1st for the following month. If you had a share the month before, we hold your spot until the 5th.",
                 },
-              ].map((s) => (
-                <div key={s.step} className="flex gap-4">
-                  <span className="font-serif text-3xl text-[var(--color-terra)] leading-none mt-1 shrink-0">
-                    {s.step}
-                  </span>
-                  <div>
-                    <h3 className="font-serif text-lg mb-1">{s.title}</h3>
-                    <p className="text-sm text-[var(--color-muted)] leading-relaxed">{s.text}</p>
-                  </div>
+                {
+                  term: "Add-ons",
+                  desc: "Eggs and chicken are available to purchase at pickup.",
+                },
+              ].map((row) => (
+                <div key={row.term} className="grid grid-cols-1 sm:grid-cols-[8rem_1fr] gap-1 sm:gap-4 py-4">
+                  <dt className="font-medium text-sm text-[var(--color-ink)]">{row.term}</dt>
+                  <dd className="m-0 text-sm text-[var(--color-muted)] leading-relaxed">
+                    {row.desc}
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
+
+            <h3 className="font-serif text-xl mt-10 mb-4">Pickup at the Farm</h3>
+            <ul className="list-none m-0 p-0 space-y-2">
+              {[
+                { day: "Thursday", time: "3:00 – 6:00 pm" },
+                { day: "Friday", time: "4:00 – 7:00 pm" },
+                { day: "Saturday", time: "9:00 am – 12:00 pm" },
+              ].map((slot) => (
+                <li
+                  key={slot.day}
+                  className="flex items-baseline justify-between gap-4 text-sm border-b border-[var(--color-linen)] pb-2"
+                >
+                  <span className="font-medium text-[var(--color-ink)]">{slot.day}</span>
+                  <span className="text-[var(--color-muted)]">{slot.time}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-4">
+              If none of those windows work for you, let us know — we'll talk it through and
+              see what we can arrange.
+            </p>
 
             <div className="mt-10 p-6 bg-[var(--color-linen)]">
               <p className="text-sm text-[var(--color-muted)] leading-relaxed">
@@ -95,20 +129,25 @@ function CsaPage() {
                 <a href="/contact" className="text-[var(--color-sage)] hover:underline">
                   contact page
                 </a>{" "}
-                and we'll be happy to tell you more about the upcoming season.
+                and we'll be happy to tell you more about the upcoming month.
               </p>
             </div>
           </div>
 
           {/* Form side */}
           <div>
-            <h2 className="font-serif text-2xl mb-6">Join the Waitlist</h2>
+            <h2 className="font-serif text-3xl mb-4">Sign Up for a Share</h2>
+            <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+              Send us your details and we'll be in touch to confirm your spot for the coming
+              month and arrange payment.
+            </p>
 
             {status === "success" ? (
               <div className="bg-[var(--color-sage)]/10 border border-[var(--color-sage)] p-8 text-center">
-                <p className="font-serif text-xl text-[var(--color-sage)] mb-2">You're on the list!</p>
+                <p className="font-serif text-xl text-[var(--color-sage)] mb-2">Thanks — we've got it!</p>
                 <p className="text-sm text-[var(--color-muted)]">
-                  We'll be in touch as the season approaches. Thank you for your interest in Sweet Source Farmstead.
+                  We'll be in touch shortly to confirm your spot and arrange payment. Thank you
+                  for supporting Sweet Source Farmstead.
                 </p>
               </div>
             ) : (
@@ -179,6 +218,67 @@ function CsaPage() {
                 </Button>
               </form>
             )}
+          </div>
+        </div>
+      </Container>
+
+      {/* FAQ */}
+      <Container>
+        <div className="pb-16 border-t border-[var(--color-linen)] pt-16">
+          <h2 className="font-serif text-3xl sm:text-4xl mb-10">Common Questions</h2>
+          <div className="space-y-10 max-w-3xl">
+            <div>
+              <h3 className="font-serif text-xl mb-3">
+                What is a CSA, and why would I want to join one?
+              </h3>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-3">
+                CSA stands for Community Supported Agriculture. It's a commitment between the
+                farmer and the eater for an agreed stretch of time, and it does good things
+                for both sides of the exchange:
+              </p>
+              <ul className="list-none m-0 p-0 space-y-2">
+                {[
+                  "Our produce has a home before it ever comes out of the ground.",
+                  "You get first choice of the freshest thing we pick that week.",
+                  "It buffers us both from the swings of the market.",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="text-[var(--color-muted)] text-sm leading-relaxed pl-5 relative before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-px before:bg-[var(--color-terra)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-xl mb-3">
+                What happens if weather or a natural disaster hurts the garden?
+              </h3>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-3">
+                There are parts of farming none of us control. That's where the S in CSA
+                comes in — as a member you're on team Sweet Source Farmstead, in the thick of
+                it with us, for the abundant weeks and the hard ones alike. We aren't able to
+                offer refunds for losses that come down to nature.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                Month-to-month sign-ups are part of how we keep that risk small for you. They
+                also mean that when life happens — say you're travelling the whole of
+                December — neither your money nor our produce goes to waste.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-xl mb-3">
+                Help! The CSA is full and I need Sweet Source produce.
+              </h3>
+              <p className="text-[var(--color-muted)] leading-relaxed">
+                Don't worry, friend. We're always growing and expanding what we're able to
+                raise. Everything beyond our CSA shares is for sale at our market stand
+                during open hours.
+              </p>
+            </div>
           </div>
         </div>
       </Container>
