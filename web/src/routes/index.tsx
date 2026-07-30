@@ -90,10 +90,10 @@ function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                to: "/blog",
-                img: "/journal_card.jpg",
-                title: "Farm Journal",
-                text: "Stories from the field — what's growing, what we're learning, and what's on the table.",
+                to: "/about",
+                img: "/farm/jesse-katy.jpg",
+                title: "Our Story",
+                text: "Meet Jesse and Katy — a family farm committed to sustainable practices, healthy soil, and honest food.",
               },
               {
                 to: "/csa",
@@ -102,10 +102,10 @@ function HomePage() {
                 text: "Join our community-supported agriculture and receive a weekly box of the freshest seasonal produce.",
               },
               {
-                to: "/about",
-                img: "/farm/jesse-katy.jpg",
-                title: "Our Story",
-                text: "Meet Jesse and Katy — a family farm committed to sustainable practices, healthy soil, and honest food.",
+                to: "/blog",
+                img: "/journal_card.jpg",
+                title: "Farm Journal",
+                text: "Stories from the field — what's growing, what we're learning, and what's on the table.",
               },
             ].map((card) => (
               <Link
