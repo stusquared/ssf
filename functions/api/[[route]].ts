@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { handle } from "hono/cloudflare-pages";
 import { z } from "zod";
 
 type Bindings = {
@@ -54,4 +55,4 @@ app.post("/contact", async (c) => {
   return c.json({ success: true }, 201);
 });
 
-export const onRequest = app.fetch;
+export const onRequest = handle(app);

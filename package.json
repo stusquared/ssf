@@ -4,12 +4,18 @@
   "scripts": {
     "dev": "pnpm --filter web dev",
     "dev:studio": "pnpm --filter studio dev",
+    "dev:functions": "pnpm build && wrangler pages dev",
     "build": "pnpm --filter web build",
     "db:migrate:local": "wrangler d1 execute ssf-db --local --file=migrations/0001_init.sql",
-    "db:migrate:dev": "wrangler d1 execute ssf-db-dev --file=migrations/0001_init.sql",
-    "db:migrate:prod": "wrangler d1 execute ssf-db --file=migrations/0001_init.sql"
+    "db:migrate:dev": "wrangler d1 execute ssf-db-dev --remote --file=migrations/0001_init.sql",
+    "db:migrate:prod": "wrangler d1 execute ssf-db --remote --file=migrations/0001_init.sql"
+  },
+  "dependencies": {
+    "hono": "^4",
+    "zod": "^3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4",
     "wrangler": "^4"
   },
   "pnpm": {
