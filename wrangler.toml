@@ -1,10 +1,13 @@
 name = "sweetsourcefarmstead"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "./web/dist"
-VITE_SANITY_PROJECT_ID=wgdj35k3
-VITE_SANITY_DATASET=production
-FROM_EMAIL=noreply@sweetsourcefarmstaead.com
-NOTIFY_EMAIL=srallen@gmail.com
+
+# Runtime vars, readable from Functions via c.env.
+# Secrets (RESEND_API_KEY) do NOT belong here — set those in the Pages
+# dashboard or with `wrangler pages secret put`, so they stay out of git.
+[vars]
+FROM_EMAIL = "Sweet Source Farmstead <noreply@sweetsourcefarmstead.com>"
+NOTIFY_EMAIL = "srallen@gmail.com"
 
 [[d1_databases]]
 binding = "DB"
@@ -15,7 +18,13 @@ database_id = "fe4cb851-e9cc-4091-aee5-7a4f945f86fc"
 binding = "FILES"
 bucket_name = "ssf-assets"
 
+# Named environments do NOT inherit the top-level [vars], so these have to be
+# repeated here or preview deploys silently lose them.
 [env.preview]
+[env.preview.vars]
+FROM_EMAIL = "Sweet Source Farmstead <noreply@sweetsourcefarmstead.com>"
+NOTIFY_EMAIL = "srallen@gmail.com"
+
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "ssf-db-dev"

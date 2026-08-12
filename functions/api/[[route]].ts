@@ -76,7 +76,16 @@ app.post("/csa-signup", async (c) => {
     );
   }
   const reply = csaAutoReply(signup);
-  jobs.push(sendEmail(c.env, { to: email, subject: reply.subject, html: reply.html }));
+  jobs.push(
+    sendEmail(c.env, {
+      to: email,
+      subject: reply.subject,
+      html: reply.html,
+      // The auto-reply invites a reply, so point it at the farm — the From
+      // address may well be a noreply@ that bounces.
+      replyTo: c.env.NOTIFY_EMAIL,
+    })
+  );
   deliverAfterResponse(c, jobs);
 
   return c.json({ success: true }, 201);
@@ -109,7 +118,14 @@ app.post("/contact", async (c) => {
     );
   }
   const reply = contactAutoReply(msg);
-  jobs.push(sendEmail(c.env, { to: email, subject: reply.subject, html: reply.html }));
+  jobs.push(
+    sendEmail(c.env, {
+      to: email,
+      subject: reply.subject,
+      html: reply.html,
+      replyTo: c.env.NOTIFY_EMAIL,
+    })
+  );
   deliverAfterResponse(c, jobs);
 
   return c.json({ success: true }, 201);
