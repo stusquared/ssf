@@ -1,0 +1,15 @@
+# Copy to .dev.vars for local `pnpm dev:functions` runs.
+# In production these are set in the Cloudflare Pages dashboard
+# (Settings > Environment Variables) for both Production and Preview.
+#
+# RESEND_API_KEY is a secret — mark it as such in the dashboard, and never
+# commit the real value. The other two are not sensitive.
+
+# From https://resend.com/api-keys
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+
+# Must be on a domain verified in Resend, or mail will be rejected.
+FROM_EMAIL=Sweet Source Farmstead <hello@sweetsourcefarmstead.com>
+
+# Where CSA signups and contact messages are announced.
+NOTIFY_EMAIL=hello@sweetsourcefarmstead.com
