@@ -1,6 +1,10 @@
 name = "sweetsourcefarmstead"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "./web/dist"
+VITE_SANITY_PROJECT_ID=wgdj35k3
+VITE_SANITY_DATASET=production
+FROM_EMAIL=noreply@sweetsourcefarmstaead.com
+NOTIFY_EMAIL=srallen@gmail.com
 
 [[d1_databases]]
 binding = "DB"
