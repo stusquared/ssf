@@ -7,7 +7,7 @@ pages_build_output_dir = "./web/dist"
 # dashboard or with `wrangler pages secret put`, so they stay out of git.
 [vars]
 FROM_EMAIL = "Sweet Source Farmstead <noreply@sweetsourcefarmstead.com>"
-NOTIFY_EMAIL = "srallen@gmail.com"
+NOTIFY_EMAIL = "sweetsourcefarmstead919@gmail.com"
 
 [[d1_databases]]
 binding = "DB"
