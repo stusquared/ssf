@@ -67,6 +67,32 @@ const practices = [
   },
 ];
 
+const history = [
+  {
+    heading: "Roots That Run Deep",
+    paragraphs: [
+      "Our farming roots run deep. On Katy's maternal side, our family's connection to the land in neighboring Johnston County dates back to the Revolutionary War, when an ancestor, Haley Dupree, was gifted land for his service. In 1830, Alexander Stancil married into the family and began cultivating that soil. Today, descendants of Haley and Alexander still farm that very same land.",
+      "Meanwhile, Jesse's family was establishing their own homesteading roots in Northern Minnesota after immigrating from Scandinavia.",
+      "In southern Wake County, the ground we stand on today was originally worked by Katy's grandfather, Charles Stephenson. After returning home from WWII, he worked this land as a tenant farmer. In 1972, he and his wife, Ruth, were finally able to purchase the acreage they had spent decades nurturing. Both of us grew up in families that were homesteading long before it became a modern trend. We share childhood memories of abundant gardens, working alongside family, and eating delicious, homegrown produce year-round.",
+    ],
+  },
+  {
+    heading: "A Shared Passion",
+    paragraphs: [
+      "Katy grew up just across the road from her grandparents, always dreaming of building a home here to raise her own children around family. Today, that dream is a reality — we are completely encircled by her parents, sister's family, uncles, aunts, and cousins, as well as Jesse's parents, sister, brother-in-law, niece, and nephew who live nearby. The Stephenson land is still actively farmed by Katy and Jesse, her cousin Colt, and her Uncle Mackey.",
+      "Our own shared journey began with a single tomato plant named Tom, which Katy gifted to Jesse while we were dating. Tom grew out of a pot in the backyard of Jesse's rental house in Jacksonville, NC. Whenever Jesse visited Katy's parents' house, we would forage for wild blackberries and help her dad in the garden. We quickly realized we had fallen in love while cooking — sharing a passion for high-quality ingredients and making gourmet meals at home.",
+    ],
+  },
+  {
+    heading: "Nurturing the Future",
+    paragraphs: [
+      "By 2007, Jesse was diving deep into agriculture, nutrition, and the environmental impacts of conventional farming. When we finally moved into our home on the family farm in 2017, he immediately started a backyard garden, putting his years of research into practice.",
+      "In 2022, our dream of stewarding this land for the next generation took on an urgent new meaning. After years of conventional farming practices had stripped the topsoil bare of life, we wanted to nurse this soil back to health. We began dreaming of a regenerative market garden.",
+      "Thanks to community grants awarded in 2025, we purchased our first two high tunnels. That spring, we began selling our first harvest of fresh, sustainably grown produce at our local community market. We are proud to cultivate the future while honoring our past.",
+    ],
+  },
+];
+
 function AboutPage() {
   return (
     <>
@@ -191,52 +217,19 @@ function AboutPage() {
           <h2 className="font-serif text-3xl sm:text-4xl mb-10">Our History</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-2 space-y-5">
-              <p className="text-[var(--color-muted)] leading-relaxed">
-                This farm land in southern Wake County was farmed by Katy's grandfather,
-                Charles Stephenson. He came home from WWII and worked it as a tenant
-                farmer. In 1972 he and his wife, Ruth, were able to purchase the land they
-                had farmed from the families of the women that had owned it. Katy grew up
-                across the road from her grandparents and always dreamed of building a
-                house on the farm to raise her children around the family. We are currently
-                encircled by her parents, sister's family, uncles, aunts, and cousins. The
-                Stephenson land is still farmed today by Katy, her cousin Colt, and her
-                Uncle Mackey.
-              </p>
-              <p className="text-[var(--color-muted)] leading-relaxed">
-                Both Jesse and Katy grew up in families that were homesteading before it was
-                a trend. We have memories of abundant gardens, working alongside family
-                members, and eating delicious produce from the farm year round. Jesse's
-                family farmed in Northern Minnesota after immigrating from Scandinavia.
-                Katy's maternal side of the family (Stancil) lived five minutes away in
-                Johnston County. The Stancil land has been traced back to how it came into
-                the family — it was originally gifted to an ancestor, Haley Dupree, for his
-                service in the Revolutionary War. Alexander Stancil married into the family
-                in 1830 and began farming the land. The Stancil land is still farmed today
-                by descendants of Haley Dupree and Alexander Stancil.
-              </p>
-              <p className="text-[var(--color-muted)] leading-relaxed">
-                When we were dating, Katy gifted Jesse his first tomato plant. Our first
-                little tomato was named Tom. He grew out of a pot in the backyard of Jesse's
-                rental house in Jacksonville, NC. Jesse would come visit Katy at her
-                parents' house often and we would go foraging for blackberries and help her
-                dad in the garden. Eventually Jesse was able to have a garden in the back
-                yard of our first house in Jacksonville. Since 2007 he has consumed an
-                abundance of knowledge about farming, nutrition, and the effects of
-                conventional farming on the climate. We always joke that we fell in love
-                while cooking — we love cooking with high quality ingredients and making
-                gourmet meals at home.
-              </p>
-              <p className="text-[var(--color-muted)] leading-relaxed">
-                Shortly after moving into our house on the farm in 2017, Jesse began his
-                garden in the back yard, implementing all that he had learned. Then in 2022
-                the dream of stewarding this land for the next generation became more
-                pressing. We wanted to nurse this land back to health after years of
-                conventional farming stripping the topsoil bare of life. We started dreaming
-                of what it would look like to have a market garden. In 2025 we were awarded
-                grants that allowed us to buy our first two high tunnels, and we began
-                selling produce at our community market that spring.
-              </p>
+            <div className="lg:col-span-2 space-y-10">
+              {history.map((section) => (
+                <div key={section.heading}>
+                  <h3 className="font-serif text-2xl mb-4">{section.heading}</h3>
+                  <div className="space-y-5">
+                    {section.paragraphs.map((para) => (
+                      <p key={para} className="text-[var(--color-muted)] leading-relaxed">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="space-y-4">
