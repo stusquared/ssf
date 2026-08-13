@@ -335,31 +335,33 @@ function AboutPage() {
             <div>
               <h3 className="font-serif text-2xl mb-4">Jesse</h3>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Jesse grew up all over the midwest and in Kenya, Africa. Some of his best
-                childhood memories are from his time on his grandparents' dairy farm —
-                rhubarb scented soap takes him right back to his Grandma's garden. Jesse has
-                had many adventures in his life. He spent middle school and high school in
-                Kenya, did a year at a private college playing soccer, rode a motorcycle
-                from Northern to Southern Africa, served in the United States Marine Corps,
-                ran a 50-mile ultra marathon, and traveled through Europe, Australia, and
-                New Zealand backpacking and rock climbing for nine months with his buddy
-                from the Marine Corps.
+                Jesse grew up all over the Midwest and in Kenya, where he spent his middle
+                and high school years. Some of his best childhood memories come from his
+                grandparents' dairy farm — to this day, the smell of rhubarb-scented soap
+                takes him straight back to his Grandma's garden.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Jesse has always been passionate about nutrition. He is a jack of all
-                trades. He has roasted coffee for over 20 years just for fun, brewed the
-                best pumpkin ale that Katy has ever tasted, and enjoys baking sourdough,
-                fermenting all the things, and brewing hard cider each fall. If Katy or his
-                dad, Darrell, needs something built, he is the one to do it.
+                The years since have not been quiet ones. He played a season of college
+                soccer, rode a motorcycle from northern to southern Africa, and served in
+                the United States Marine Corps. He has run a fifty-mile ultramarathon. He
+                spent nine months backpacking and rock climbing through Europe, Australia,
+                and New Zealand with a buddy from the Corps.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                Nutrition has always been his passion, and he is happiest with a project in
+                hand. He has roasted his own coffee for more than twenty years purely for
+                the pleasure of it, brewed the best pumpkin ale Katy has ever tasted, and
+                keeps up a steady rotation of sourdough, ferments, and hard cider each fall.
+                When Katy or his dad, Darrell, needs something built, Jesse is the one who
+                builds it.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed">
-                Jesse is a Campbell University alumnus. He enjoys rugby over football, but
-                he will watch the Chiefs play with Katy. He is a classic rock kind of guy.
-                Give him a cup of good coffee on the porch on a cool morning and he is in
-                paradise. If you want to know anything about soil health, regenerative
-                farming, or homesteading, he is the one to ask — he is the one out there
-                doing the physical labor all year round to ensure you have the best food
-                around.
+                He is a Campbell University alumnus, takes rugby over football, and will
+                still sit down to watch the Chiefs with Katy. He is a classic rock kind of
+                guy. Give him a good cup of coffee on the porch on a cool morning and he is
+                in paradise. If you want to talk soil health, regenerative farming, or
+                homesteading, he is the one to ask — and he is the one out in the fields
+                year-round making sure you eat well.
               </p>
             </div>
           </div>
@@ -377,23 +379,26 @@ function AboutPage() {
             <div>
               <h3 className="font-serif text-2xl mb-4">Katy</h3>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Here are a few things you should know about Katy. She loves people and
-                animals, and not necessarily in that order. When you interact with her you
-                will instantly feel safe and seen. She will make you laugh, and she will
-                most likely want to talk to you about chickens.
+                Katy loves people and animals, and not necessarily in that order. She has a
+                way of making you feel safe and seen within a minute of meeting her, she
+                will almost certainly make you laugh, and there is a good chance she will
+                want to talk to you about chickens.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                She is the one keeping up with all the administration, to-do lists, and
-                social media, giving Jesse much needed deadlines, tenderly caring for our
-                animals, and trying desperately to convince Jesse that they should keep all
-                of them as pets. You will find her out in the garden in the spring, fall,
-                and winter. Katy is passionate about advocating for those with invisible
-                illnesses and helping folks be more thoughtful toward those of us who have
-                other abilities.
+                She is the one who keeps everything moving — the administration, the to-do
+                lists, the social media, and the deadlines Jesse needs whether he wants them
+                or not. She tends our animals with real tenderness, and campaigns endlessly
+                to convince Jesse that every last one of them should be kept as a pet. You
+                will find her out in the garden through spring, fall, and winter.
+              </p>
+              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
+                Katy is a passionate advocate for people living with invisible illnesses,
+                and for helping folks be more thoughtful toward those of us who have other
+                abilities.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed">
-                She is a Campbell University alumna — Go Camels! If she has headphones on,
-                she is either listening to Taylor Swift or an audio book.
+                She is a Campbell University alumna — Go Camels! — and if she has her
+                headphones on, it is either Taylor Swift or an audiobook.
               </p>
             </div>
           </div>
