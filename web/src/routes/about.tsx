@@ -333,35 +333,37 @@ function AboutPage() {
               </figure>
             </div>
             <div>
-              <h3 className="font-serif text-2xl mb-4">Jesse</h3>
+              <h3 className="font-serif text-2xl mb-4">Meet Jesse</h3>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Jesse grew up all over the Midwest and in Kenya, where he spent his middle
-                and high school years. Some of his best childhood memories come from his
-                grandparents' dairy farm — to this day, the smell of rhubarb-scented soap
-                takes him straight back to his Grandma's garden.
+                Jesse's path to the farm was anything but ordinary. He grew up across the
+                Midwest and in Kenya, where he spent his middle and high school years. Yet
+                some of his favorite childhood memories trace back to his grandparents'
+                Midwest dairy farm — to this day, the scent of rhubarb soap takes him
+                straight back to his Grandma's garden.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                The years since have not been quiet ones. He played a season of college
-                soccer, rode a motorcycle from northern to southern Africa, and served in
-                the United States Marine Corps. He has run a fifty-mile ultramarathon. He
-                spent nine months backpacking and rock climbing through Europe, Australia,
+                The years since have been a whirlwind of adventure. Jesse played college
+                soccer, rode a motorcycle from northern to southern Africa, and proudly
+                served in the U.S. Marine Corps. He has tackled a 50-mile ultramarathon and
+                spent nine months backpacking and rock climbing across Europe, Australia,
                 and New Zealand with a buddy from the Corps.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Nutrition has always been his passion, and he is happiest with a project in
-                hand. He has roasted his own coffee for more than twenty years purely for
-                the pleasure of it, brewed the best pumpkin ale Katy has ever tasted, and
-                keeps up a steady rotation of sourdough, ferments, and hard cider each fall.
-                When Katy or his dad, Darrell, needs something built, Jesse is the one who
-                builds it.
+                Through every journey, nutrition and craft have remained his core passions.
+                Jesse is happiest with a project in hand. He has roasted his own coffee for
+                over twenty years, brews a legendary pumpkin ale, and keeps our home
+                supplied with a steady rotation of sourdough, ferments, and hard cider each
+                fall. He is also our resident builder — whenever his dad, Darrell, or Katy
+                needs something constructed on the farm, Jesse makes it happen.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed">
-                He is a Campbell University alumnus, takes rugby over football, and will
-                still sit down to watch the Chiefs with Katy. He is a classic rock kind of
-                guy. Give him a good cup of coffee on the porch on a cool morning and he is
-                in paradise. If you want to talk soil health, regenerative farming, or
-                homesteading, he is the one to ask — and he is the one out in the fields
-                year-round making sure you eat well.
+                A Campbell University alumnus, Jesse prefers rugby over football, but he
+                will always sit down to watch the Chiefs with Katy. If the morning is cool,
+                you will find him on the porch with a good cup of coffee, listening to
+                classic rock. Most importantly, Jesse is the heart of our fields. If you
+                want to talk about soil health, regenerative farming, or homesteading, he is
+                the expert to ask — and he is out on the farm year-round making sure your
+                family eats well.
               </p>
             </div>
           </div>
@@ -377,28 +379,27 @@ function AboutPage() {
               />
             </div>
             <div>
-              <h3 className="font-serif text-2xl mb-4">Katy</h3>
+              <h3 className="font-serif text-2xl mb-4">Meet Katy</h3>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Katy loves people and animals, and not necessarily in that order. She has a
-                way of making you feel safe and seen within a minute of meeting her, she
-                will almost certainly make you laugh, and there is a good chance she will
-                want to talk to you about chickens.
+                Katy loves people and animals — and not necessarily in that order. She has a
+                natural way of making you feel safe and seen within a minute of meeting her,
+                will almost certainly make you laugh, and there is a very good chance she
+                will try to talk to you about chickens.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                She is the one who keeps everything moving — the administration, the to-do
-                lists, the social media, and the deadlines Jesse needs whether he wants them
-                or not. She tends our animals with real tenderness, and campaigns endlessly
-                to convince Jesse that every last one of them should be kept as a pet. You
-                will find her out in the garden through spring, fall, and winter.
-              </p>
-              <p className="text-[var(--color-muted)] leading-relaxed mb-4">
-                Katy is a passionate advocate for people living with invisible illnesses,
-                and for helping folks be more thoughtful toward those of us who have other
-                abilities.
+                On the farm, Katy is the engine that keeps everything moving. She handles the
+                administration, keeps the to-do lists, manages the social media, and enforces
+                the deadlines Jesse needs (whether he wants them or not!). She also tends to
+                our animals with incredible tenderness, campaigning endlessly to convince
+                Jesse that every single one of them should be kept as a pet. You will find
+                her out in the garden through spring, fall, and winter.
               </p>
               <p className="text-[var(--color-muted)] leading-relaxed">
-                She is a Campbell University alumna — Go Camels! — and if she has her
-                headphones on, it is either Taylor Swift or an audiobook.
+                Beyond the fields, Katy is a passionate advocate for people living with
+                invisible illnesses, dedicating her time to helping folks be more thoughtful
+                toward those with different abilities. A proud Campbell University alumna
+                (Go Camels!), Katy is rarely without her headphones — which are almost
+                always playing either Taylor Swift or a great audiobook.
               </p>
             </div>
           </div>
