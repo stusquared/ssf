@@ -437,14 +437,17 @@ function AboutPage() {
           <div className="max-w-2xl">
             <h2 className="font-serif text-3xl mb-4">Our Volunteers</h2>
             <p className="text-white/80 leading-relaxed mb-4">
-              We have the absolute best crew of volunteers that make all of this possible.
-              From helping with harvest, planting, washing, packing, sorting, and
-              brainstorming, to access to land and tech support — they are part of every
-              aspect of this farm.
+              We have the absolute best crew of volunteers at Sweet Source Farmstead. From
+              planting, harvesting, washing, packing, and sorting, to providing vital land
+              access, tech support, chicken sitting and creative brainstorming — they are
+              woven into every single aspect of this farm. The younger generation of our
+              family and friends even helps us run our farmstand at the Fuquay-Varina
+              Growers Market every summer.
             </p>
             <p className="text-white/80 leading-relaxed">
-              Thank you to Ronnie (Katy's dad), Denise (Katy's mom), Darrell (Jesse's dad),
-              Stuart, and Becky for all of your help.
+              We want to extend a heartfelt thank you to Ronnie and Denise (Katy's parents),
+              Darrell and Carrie (Jesse's parents), our family members, and Becky and Stuart
+              (our friends).
             </p>
           </div>
         </Container>
