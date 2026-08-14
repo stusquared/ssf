@@ -114,19 +114,21 @@ function AboutPage() {
         {/* Intro */}
         <div className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
-              We are farmers who care about the flourishing of this land and the people
-              around it.
-            </p>
+            <h2 className="font-serif text-3xl sm:text-4xl mb-6">
+              Welcome to Sweet Source Farmstead
+            </h2>
             <p className="text-[var(--color-muted)] leading-relaxed mb-6">
-              Alongside our produce, we offer field trips and educational workshops —
-              because knowing where your food comes from is part of what makes it
-              nourishing.
+              We are more than just growers; we are stewards dedicated to the flourishing of
+              this land and the people who surround it. Through our sustainable produce,
+              seasonal field trips, and educational workshops, we help connect families back
+              to the earth — because knowing the story behind your food is vital to true
+              nourishment.
             </p>
             <p className="text-[var(--color-muted)] leading-relaxed">
-              We have lots of dreams and plans for this place to grow into a sanctuary for
-              our community. A place where you can step away from the noise and hustle and
-              breathe. So stick around, folks, and become part of the dream.
+              Our vision is to cultivate Sweet Source Farmstead into a community sanctuary.
+              We invite you to step away from the modern hustle, reconnect with nature, and
+              find a place to breathe. We have endless dreams for this place. Join us on this
+              journey, and become part of our growing story.
             </p>
           </div>
 
