@@ -7,62 +7,82 @@ export const Route = createFileRoute("/about")({
 
 const practices = [
   {
-    title: "We do not till",
+    title: "We Do Not Till",
     body: [
-      "Aside from creating new beds initially, we practice no-till farming. The ecosystem of our soil does not battle with the destructive nature of fast moving metal. Instead, we engage in biologically-intensive, human-scale methods to manage our beds and protect the soil.",
-      "This creates more soil life and natural resistance to pests and disease. It also increases the soil's ability to hold water and resist drought.",
+      "Aside from initially creating our growing beds, we practice strict no-till farming. We believe the fragile ecosystem of our soil should never have to battle the destructive nature of fast-moving metal blades. Instead, we use biologically intensive, human-scale methods to manage our beds and protect the earth.",
+    ],
+    items: [
+      {
+        name: "The Result",
+        desc: "This gentle approach fosters thriving soil life, builds a natural resistance to pests and disease, and drastically increases the soil's ability to hold water during droughts.",
+      },
     ],
   },
   {
-    title: "We use holistic practices for pest control and fertility management",
+    title: "We Use Holistic Practices",
     body: [
-      "We do not use any chemical or synthetic sprays on our farm. We maintain natural growing methods using organic compost applications, companion planting, fostering biodiversity, and the bare minimum of organically approved inputs when they are needed.",
+      "We strictly avoid chemical and synthetic sprays. Instead, we maintain entirely natural growing methods using organic compost, strategic companion planting, and high biodiversity. When our crops need a helping hand, we rely on the bare minimum of organically approved, natural inputs.",
     ],
-    itemsLabel: "Sprays we do use",
+    itemsLabel: "What We Use & Why",
     items: [
       {
-        name: "Bacillus thuringiensis (Bt)",
-        desc: "A naturally occurring bacterium that makes worms sick when they eat it.",
+        name: "Bt (Bacillus thuringiensis)",
+        desc: "A naturally occurring soil bacterium that safely and specifically targets destructive caterpillars and worms.",
       },
       {
-        name: "Neem oil",
-        desc: "A natural, organic pesticide derived from the seeds of the neem tree.",
+        name: "Neem Oil",
+        desc: "A completely organic, natural oil pressed from the seeds of the neem tree to deter pests.",
       },
       {
         name: "Spinosad",
-        desc: "Derived from soil bacteria to target specific insects. It breaks down quickly in sunlight and soil into harmless natural elements.",
+        desc: "A natural substance derived from soil bacteria that targets specific insects and breaks down quickly in sunlight into harmless elements.",
       },
       {
-        name: "Lactic acid bacteria (LAB)",
-        desc: "Commonly found in fermented foods, we use it as a biostimulant. Farmer Jesse cultures ours from organic rice wash water.",
+        name: "Lactic Acid Bacteria (LAB)",
+        desc: "A natural biostimulant found in fermented foods. Farmer Jesse hand-cultures ours using organic rice wash water to boost plant health.",
       },
       {
         name: "Whey",
-        desc: "Naturally derived from organic milk, we use it as a fungicide. Farmer Jesse makes this himself.",
+        desc: "Farmer Jesse creates this himself from organic milk, using it as a safe, natural defense against crop fungi.",
       },
       {
-        name: "Effective microorganisms",
-        desc: "A blend of beneficial, naturally occurring microbes — primarily LAB, yeast, and photosynthetic bacteria. We use it as a biostimulant.",
+        name: "Effective Microorganisms",
+        desc: "A beneficial blend of naturally occurring microbes (primarily LAB, yeast, and photosynthetic bacteria) that acts as a vitamin boost for our crops.",
       },
     ],
   },
   {
-    title: "We are actively engaged with our farm",
+    title: "We Are Actively Engaged",
     body: [
-      "We highly value integrity and quality. We have our hands in the soil and our feet on the ground daily, giving the care that our small farming scale allows. Keeping our team and our tools small means we can pay attention to the details and foster a flourishing farm.",
-      "We do not use tractors in our growing area, apart from moving mulch and compost. Tractors compact the ground, which harms plant health as well as the water and the land around us. Staying off it also reduces the carbon footprint of our farm.",
+      "Integrity and quality require a human touch. We have our hands in the soil and our feet on the ground daily, providing the meticulous care that only a small-scale farm allows. Keeping our team and our tools small means we never miss the details.",
+    ],
+    items: [
+      {
+        name: "No Heavy Machinery",
+        desc: "We do not use tractors in our growing areas, except for occasionally moving heavy mulch and compost. Tractors compact the ground, which suffocates plant roots and harms the surrounding watershed. Staying foot-powered keeps our soil loose and significantly reduces our carbon footprint.",
+      },
     ],
   },
   {
-    title: "We treat our animals with the utmost care",
+    title: "We Treat Our Animals with Utmost Care",
     body: [
-      "All of our farm animals are on a strictly organic and natural diet. They forage, scratch, munch, and move around the way nature intended. While we do not allow our hens to free range — due to the danger of them getting in the road or wandering to the nearby sod farms — they are rotationally grazed or have access to a large chicken run from sun up to sun down. Animals are crucial to regenerating soil health.",
+      "All of our animals enjoy a strictly organic, natural diet where they can forage, scratch, munch, and move the way nature intended.",
+    ],
+    items: [
+      {
+        name: "Safe Pasture Rotation",
+        desc: "Because we live near a busy road and neighboring sod farms, we do not allow our hens to completely free-range for their own safety. Instead, they enjoy a rotationally grazed pasture system or a massive, secure chicken run from sunup to sundown.",
+      },
+      {
+        name: "Our Partners in Regeneration",
+        desc: "We view our animals not just as livestock, but as crucial partners in naturally regenerating and fertilizing our soil health.",
+      },
     ],
   },
   {
-    title: "We test our water regularly",
+    title: "We Test Our Water Regularly",
     body: [
-      "We run water testing twice a year through the health department to ensure it is clean and safe for irrigation.",
+      "Clean water is the foundation of healthy food. We run comprehensive water testing twice a year through the local health department to guarantee our supply is clean, safe, and pure for all crop irrigation.",
     ],
   },
 ];
