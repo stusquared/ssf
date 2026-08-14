@@ -100,9 +100,12 @@ function AboutPage() {
       <div className="pt-32 pb-16 bg-[var(--color-linen)]">
         <Container>
           <h1 className="font-serif text-5xl sm:text-6xl font-medium">Our Story</h1>
-          <p className="mt-4 text-[var(--color-muted)] text-lg max-w-2xl leading-relaxed">
-            A small scale, regenerative, mixed enterprise farm in Willow Spring, North
-            Carolina — growing vegetables, fruits, herbs, flowers, poultry, and eggs.
+          <p className="mt-4 text-[var(--color-muted)] text-lg max-w-3xl leading-relaxed">
+            Welcome to our small-scale, regenerative farm in Willow Spring, North Carolina.
+            As a mixed-enterprise family farm, we are dedicated to working in harmony with
+            nature to grow fresh vegetables, fruits, herbs, and vibrant flowers, while
+            sustainably raising pasture-fed poultry and gathering farm-fresh eggs for our
+            community.
           </p>
         </Container>
       </div>
