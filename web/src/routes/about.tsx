@@ -261,6 +261,19 @@ function AboutPage() {
               <figure className="m-0">
                 <div className="bg-[var(--color-linen)] overflow-hidden">
                   <img
+                    src="/farm/history-papa-ronnie-mackey.jpg"
+                    alt="A vintage black-and-white photograph of a man kneeling in a field of poppies with a baby on his lap and a young boy beside him"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+                  Papa with baby Ronnie and Mackey.
+                </figcaption>
+              </figure>
+              <figure className="m-0">
+                <div className="bg-[var(--color-linen)] overflow-hidden">
+                  <img
                     src="/farm/history-family-field.jpg"
                     alt="A vintage photograph of a father and young child walking through a hayfield"
                     loading="lazy"
