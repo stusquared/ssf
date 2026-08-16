@@ -62,7 +62,7 @@ function PostPage() {
 
       {/* Hero image */}
       {post.mainImage && (
-        <div className="aspect-[21/9] max-h-[500px] overflow-hidden">
+        <div className="w-full aspect-[21/9] max-h-[500px] overflow-hidden">
           <img
             src={urlFor(post.mainImage).width(1400).height(600).url()}
             alt={post.mainImage.alt ?? post.title}
@@ -73,7 +73,7 @@ function PostPage() {
 
       {/* Post body */}
       <Container>
-        <div className="py-14 max-w-2xl mx-auto">
+        <div className="py-14 max-w-2xl">
           <div className="prose-farm">
             <PortableText
               value={post.body}
