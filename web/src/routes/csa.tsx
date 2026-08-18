@@ -1,47 +1,45 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
+import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const Route = createFileRoute("/csa")({
   component: CsaPage,
 });
 
-const schema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Valid email required"),
-  phone: z.string().optional(),
-  message: z.string().optional(),
-});
+type Product = {
+  id: number;
+  name: string;
+  description: string | null;
+  price_cents: number;
+  timeframe: string;
+  spots_remaining: number;
+  total_spots: number;
+};
 
-type FormValues = z.infer<typeof schema>;
+type ProductsResponse = { salesEnabled: boolean; products: Product[] };
 
 function CsaPage() {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  const [products, setProducts] = useState<Product[]>([]);
+  const [salesEnabled, setSalesEnabled] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
-  const onSubmit = async (data: FormValues) => {
-    try {
-      const res = await fetch("/api/csa-signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
-  };
+  useEffect(() => {
+    fetch("/api/csa/products")
+      .then((r) => r.json())
+      .then((data) => {
+        const res = data as ProductsResponse;
+        setProducts(res.products ?? []);
+        setSalesEnabled(res.salesEnabled !== false);
+        setLoaded(true);
+      })
+      .catch(() => setLoaded(true));
+  }, []);
+
+  // Sold-out packages still render above the waitlist — seeing what was offered
+  // and at what price is what makes signing up for the next round worth doing.
+  const hasBuyable = salesEnabled && products.some((p) => p.spots_remaining > 0);
+  const showWaitlist = loaded && !hasBuyable;
 
   return (
     <>
@@ -134,89 +132,130 @@ function CsaPage() {
             </div>
           </div>
 
-          {/* Form side */}
+          {/* Packages side */}
           <div>
-            <h2 className="font-serif text-3xl mb-4">Sign Up for a Share</h2>
+            <h2 className="font-serif text-3xl mb-4">
+              {hasBuyable ? "Available Packages" : "Join the Waitlist"}
+            </h2>
             <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
-              Send us your details and we'll be in touch to confirm your spot for the coming
-              month and arrange payment.
+              {hasBuyable
+                ? "Choose the share that works for you and sign up securely online."
+                : !salesEnabled
+                  ? "Sign-ups are closed at the moment. Leave your details and we'll let you know the moment they reopen."
+                  : products.length > 0
+                    ? "Every share has been claimed. Leave your details and you'll be first to hear when the next round opens."
+                    : "There are no shares open right now. Leave your details and we'll be in touch when the next season opens."}
             </p>
 
-            {status === "success" ? (
-              <div className="bg-[var(--color-sage)]/10 border border-[var(--color-sage)] p-8 text-center">
-                <p className="font-serif text-xl text-[var(--color-sage)] mb-2">Thanks — we've got it!</p>
-                <p className="text-sm text-[var(--color-muted)]">
-                  We'll be in touch shortly to confirm your spot and arrange payment. Thank you
-                  for supporting Sweet Source Farmstead.
-                </p>
+            {!loaded && (
+              <div className="space-y-4">
+                {[1, 2].map((n) => (
+                  <div key={n} className="animate-pulse border border-[var(--color-linen)] p-6">
+                    <div className="h-5 bg-gray-200 rounded w-1/2 mb-3" />
+                    <div className="h-4 bg-gray-100 rounded w-full mb-2" />
+                    <div className="h-4 bg-gray-100 rounded w-3/4" />
+                  </div>
+                ))}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    Full Name <span className="text-[var(--color-terra)]">*</span>
-                  </label>
-                  <input
-                    {...register("name")}
-                    className="w-full border border-[var(--color-linen)] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--color-sage)] transition-colors"
-                    placeholder="Jane Smith"
-                  />
-                  {errors.name && (
-                    <p className="text-xs text-[var(--color-terra)] mt-1">{errors.name.message}</p>
-                  )}
-                </div>
+            )}
 
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    Email <span className="text-[var(--color-terra)]">*</span>
-                  </label>
-                  <input
-                    {...register("email")}
-                    type="email"
-                    className="w-full border border-[var(--color-linen)] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--color-sage)] transition-colors"
-                    placeholder="jane@example.com"
-                  />
-                  {errors.email && (
-                    <p className="text-xs text-[var(--color-terra)] mt-1">{errors.email.message}</p>
-                  )}
-                </div>
+            {loaded && products.length > 0 && (
+              <div className="space-y-5">
+                {products.map((p) => {
+                  const soldOut = p.spots_remaining === 0;
+                  const lowStock = !soldOut && p.spots_remaining <= 5;
+                  return (
+                    <div
+                      key={p.id}
+                      // White on the parchment page is what separates the card from the
+                      // background; the page's own linen border all but disappears here.
+                      className={`relative bg-white overflow-hidden transition-all duration-300 ${
+                        soldOut
+                          ? "opacity-65 shadow-sm"
+                          : "shadow-[0_1px_3px_rgba(26,53,88,0.08)] hover:shadow-[0_14px_32px_rgba(26,53,88,0.14)] hover:-translate-y-1"
+                      }`}
+                    >
+                      <div
+                        className={`h-1 w-full ${soldOut ? "bg-[var(--color-muted)]/25" : "bg-[var(--color-terra)]"}`}
+                      />
 
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">Phone (optional)</label>
-                  <input
-                    {...register("phone")}
-                    type="tel"
-                    className="w-full border border-[var(--color-linen)] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--color-sage)] transition-colors"
-                    placeholder="(555) 000-0000"
-                  />
-                </div>
+                      <div className="p-7">
+                        <div className="flex items-start justify-between gap-5">
+                          <div className="min-w-0">
+                            <h3 className="font-serif text-2xl leading-tight text-[var(--color-ink)]">
+                              {p.name}
+                            </h3>
+                            <p className="text-[11px] uppercase tracking-[0.12em] text-[var(--color-muted)] mt-2">
+                              {p.timeframe}
+                            </p>
+                          </div>
+                          <div className="text-right shrink-0">
+                            <p className="font-serif text-3xl leading-none text-[var(--color-ink)]">
+                              ${(p.price_cents / 100).toFixed(2)}
+                            </p>
+                            <p className="text-xs text-[var(--color-muted)] mt-1.5">per share</p>
+                          </div>
+                        </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    Anything you'd like us to know? (optional)
-                  </label>
-                  <textarea
-                    {...register("message")}
-                    rows={4}
-                    className="w-full border border-[var(--color-linen)] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--color-sage)] transition-colors resize-none"
-                    placeholder="Household size, dietary notes, questions about pickup..."
-                  />
-                </div>
+                        {p.description && (
+                          <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-4">
+                            {p.description}
+                          </p>
+                        )}
 
-                {status === "error" && (
-                  <p className="text-sm text-[var(--color-terra)]">
-                    Something went wrong. Please try again or reach out directly.
+                        <div className="flex items-center justify-between gap-4 mt-6 pt-5 border-t border-[var(--color-linen)]">
+                          {/* Urgency reads from the dot's color plus the weight of the label —
+                              terra text on white is too low-contrast to carry it alone. */}
+                          <span
+                            className={`inline-flex items-center gap-2 text-xs ${
+                              lowStock
+                                ? "font-medium text-[var(--color-ink)]"
+                                : "text-[var(--color-muted)]"
+                            }`}
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                                soldOut
+                                  ? "bg-[var(--color-muted)]"
+                                  : lowStock
+                                    ? "bg-[var(--color-terra)]"
+                                    : "bg-[var(--color-sage)]"
+                              }`}
+                            />
+                            {soldOut
+                              ? "Sold out"
+                              : lowStock
+                                ? `Only ${p.spots_remaining} spot${p.spots_remaining !== 1 ? "s" : ""} left`
+                                : `${p.spots_remaining} of ${p.total_spots} spots remaining`}
+                          </span>
+
+                          {!soldOut && (
+                            <Link
+                              to="/checkout"
+                              search={{ productId: p.id, cancelled: false }}
+                              className="shrink-0 bg-[var(--color-sage)] text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-[var(--color-sage-dark)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sage)] focus-visible:ring-offset-2"
+                            >
+                              Sign Up →
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {showWaitlist && (
+              <div className={products.length > 0 ? "mt-8" : ""}>
+                {products.length > 0 && (
+                  <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-5 pt-6 border-t border-[var(--color-linen)]">
+                    Shares for this season are spoken for — join the waitlist and we'll
+                    reach out first when the next round opens.
                   </p>
                 )}
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-4"
-                >
-                  {isSubmitting ? "Submitting…" : "Submit Interest"}
-                </Button>
-              </form>
+                <WaitlistForm />
+              </div>
             )}
           </div>
         </div>

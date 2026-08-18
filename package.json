@@ -6,12 +6,13 @@
     "dev:studio": "pnpm --filter studio dev",
     "dev:functions": "pnpm build && wrangler pages dev",
     "build": "pnpm --filter web build",
-    "db:migrate:local": "wrangler d1 execute ssf-db --local --file=migrations/0001_init.sql",
-    "db:migrate:dev": "wrangler d1 execute ssf-db-dev --remote --file=migrations/0001_init.sql",
-    "db:migrate:prod": "wrangler d1 execute ssf-db --remote --file=migrations/0001_init.sql"
+    "db:migrate:local": "wrangler d1 execute ssf-db --local --file=migrations/0001_init.sql && wrangler d1 execute ssf-db --local --file=migrations/0002_ecommerce.sql && wrangler d1 execute ssf-db --local --file=migrations/0003_settings.sql",
+    "db:migrate:dev": "wrangler d1 execute ssf-db-dev --remote --file=migrations/0001_init.sql && wrangler d1 execute ssf-db-dev --remote --file=migrations/0002_ecommerce.sql && wrangler d1 execute ssf-db-dev --remote --file=migrations/0003_settings.sql",
+    "db:migrate:prod": "wrangler d1 execute ssf-db --remote --file=migrations/0001_init.sql && wrangler d1 execute ssf-db --remote --file=migrations/0002_ecommerce.sql && wrangler d1 execute ssf-db --remote --file=migrations/0003_settings.sql"
   },
   "dependencies": {
     "hono": "^4",
+    "stripe": "^17",
     "zod": "^3"
   },
   "devDependencies": {
@@ -19,6 +20,10 @@
     "wrangler": "^4"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
   }
 }

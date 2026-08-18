@@ -1,5 +1,6 @@
 name = "sweetsourcefarmstead"
 compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./web/dist"
 
 # Runtime vars, readable from Functions via c.env.
@@ -8,6 +9,7 @@ pages_build_output_dir = "./web/dist"
 [vars]
 FROM_EMAIL = "Sweet Source Farmstead <noreply@sweetsourcefarmstead.com>"
 NOTIFY_EMAIL = "sweetsourcefarmstead919@gmail.com"
+ADMIN_USER = "admin"
 
 [[d1_databases]]
 binding = "DB"
@@ -24,6 +26,7 @@ bucket_name = "ssf-assets"
 [env.preview.vars]
 FROM_EMAIL = "Sweet Source Farmstead <noreply@sweetsourcefarmstead.com>"
 NOTIFY_EMAIL = "srallen@gmail.com"
+ADMIN_USER = "admin"
 
 [[env.preview.d1_databases]]
 binding = "DB"
