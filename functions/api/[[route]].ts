@@ -186,9 +186,21 @@ app.post("/admin/login", async (c) => {
   // Unset admin config is a server misconfiguration, not a bad password. Without
   // this guard every login fails as "invalid credentials" and the real cause —
   // a .dev.vars in the wrong place, or an unset Pages secret — stays hidden.
-  if (!c.env.ADMIN_USER || !c.env.ADMIN_PASS || !c.env.ADMIN_SECRET) {
-    console.error("[admin] ADMIN_USER, ADMIN_PASS, or ADMIN_SECRET is not set");
-    return c.json({ error: "Admin login is not configured on this server." }, 500);
+  // Name the unset variables. These are names, never values, and they are already
+  // public in wrangler.toml — worth far more than a generic message, because Pages
+  // binds env vars at DEPLOY time, so adding a secret without redeploying looks
+  // identical to never having set it.
+  const missing = (["ADMIN_USER", "ADMIN_PASS", "ADMIN_SECRET"] as const).filter(
+    (k) => !c.env[k],
+  );
+  if (missing.length > 0) {
+    console.error(`[admin] not configured, missing: ${missing.join(", ")}`);
+    return c.json(
+      {
+        error: `Admin login is not configured on this server. Missing: ${missing.join(", ")}. If these were just added, the deployment needs to be rebuilt — Pages binds environment variables at deploy time.`,
+      },
+      500,
+    );
   }
   const body = await c.req.json().catch(() => null);
   if (!body?.username || !body?.password) {
