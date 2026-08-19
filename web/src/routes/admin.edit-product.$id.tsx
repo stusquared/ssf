@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ProductForm, type ProductFormValues } from "@/components/admin/ProductForm";
-import { adminFetch } from "@/lib/admin";
+import { adminFetch, describeError } from "@/lib/admin";
 
 export const Route = createFileRoute("/admin/edit-product/$id")({
   component: EditProductPage,
@@ -36,7 +36,7 @@ function EditProductPage() {
       method: "PUT",
       body: JSON.stringify(values),
     });
-    if (!res.ok) throw new Error("Failed to update package.");
+    if (!res.ok) throw new Error(await describeError(res, "Failed to update package."));
     navigate({ to: "/admin/dashboard" });
   }
 

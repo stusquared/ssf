@@ -502,4 +502,28 @@ app.post("/contact", async (c) => {
   return c.json({ success: true }, 201);
 });
 
+/**
+ * Hono's default for an uncaught throw is plain-text "Internal Server Error",
+ * which the admin UI cannot parse and the client cannot act on. Return JSON,
+ * and name the one cause that actually recurs: a database that is bound to the
+ * wrong D1 instance, or bound correctly but never migrated.
+ */
+app.onError((err, c) => {
+  console.error("[api] unhandled error:", err);
+  const message = String(err?.message ?? "");
+  if (/no such table/i.test(message)) {
+    return c.json(
+      { error: "The database is missing tables — it may not have been migrated." },
+      500,
+    );
+  }
+  if (/Cannot read properties of undefined|is not a function/i.test(message)) {
+    return c.json(
+      { error: "The database binding is not configured on this deployment." },
+      500,
+    );
+  }
+  return c.json({ error: "Something went wrong on the server." }, 500);
+});
+
 export const onRequest = handle(app);

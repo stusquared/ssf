@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ProductForm, type ProductFormValues } from "@/components/admin/ProductForm";
-import { adminFetch } from "@/lib/admin";
+import { adminFetch, describeError } from "@/lib/admin";
 
 export const Route = createFileRoute("/admin/new-product")({
   component: NewProductPage,
@@ -14,7 +14,7 @@ function NewProductPage() {
       method: "POST",
       body: JSON.stringify(values),
     });
-    if (!res.ok) throw new Error("Failed to create package.");
+    if (!res.ok) throw new Error(await describeError(res, "Failed to create package."));
     navigate({ to: "/admin/dashboard" });
   }
 
